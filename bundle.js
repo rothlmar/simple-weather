@@ -18,15 +18,16 @@ angular.module("weatherApp", [require('angular-route')])
 	// $locationProvider.html5Mode(true);
     })
     .factory("weatherSvc", ["$http", "$q", function($http, $q) {
-	var all_cities = {};
+	var summary_url = "/services/all-cities.json";
 	var get_summary = $q(function(resolve, reject) {
-	    $http.get("/services/all-cities.json")
+	    $http.get(summary_url)
 		.success(function(data) {
 		    resolve(data);
 		})
 	});
 	var get_detail = function(url) {
 	    return $q(function(resolve, reject) {
+		// should implement caching so we don't have to keep retreiving the URL
 		$http.get(url)
 		    .success(function(data) {
 			resolve(data);
@@ -42,6 +43,7 @@ angular.module("weatherApp", [require('angular-route')])
 		});
 	    } else {
 		get_summary.then(function(data) {
+		    // this is a hack, doesn't handle errors at all.
 		    for (idx in data) {
 			if ( city_name === data[idx].city ) {
 			    console.log(city_name);

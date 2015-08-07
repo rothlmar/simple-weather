@@ -1,20 +1,27 @@
 <div class="page-header">
   <h1>{{ detail.data.city }}, {{ detail.data.state | uppercase }} Weather</h1>
 </div>
-<div>
-  <div class="col-md-4">
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
     The temperature is {{ detail.data.tempF }}&#176;F ({{ detail.data.tempC }}&#176;C) and conditions are {{ detail.data.weather }}.
     There is a {{ detail.data.rainChance }} chance of rain.
   </div>
-  <div class="col-md-4">
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
     Wind is from the {{ detail.data.windDir }} at {{ detail.data.windMph }} miles per hour.
   </div>
-  <div class="col-md-4">
-    Visibilitiy is {{ detail.data.visibilityMiles }} miles, and the dew point is {{ detail.data.dewPointF }}&#176;F 
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    Visibilitiy is {{ detail.data.visibilityMiles }} miles, and the dew point is {{ detail.data.dewPointF }}&#176;F
   </div>
 </div>
+<hr>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-4 col-md-offset-4">
     Observation time: {{ detail.data.observationTime*1000 | date:'h:mm a MMMM d, y'}}
   </div>
 </div>
