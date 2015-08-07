@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h1>Today's Weather</h1>
+</div>
+<div class="row">
+  <div class="col-md-4 text-center" ng-repeat="item in summary.data">
+    <a href="#/city/{{ item.city }}">
+      {{ item.city }}, {{ item.state | uppercase }}
+    </a> 
+    | {{ item.tempF }}&#176;F
+  </div>
+</div>
