@@ -17,6 +17,9 @@ angular.module("weatherApp", [require('angular-route')])
 	// $locationProvider.html5Mode(true);
     })
     .factory("weatherSvc", ["$http", "$q", function($http, $q) {
+	// weatherSvc can be called with no arguments (to get a summary of all cities)
+	// or with a city name (to get that city's detail.
+	// TODO: error handling if called with an invalid city name.
 	var summary_url = "/services/all-cities.json";
 	var get_summary = $q(function(resolve, reject) {
 	    $http.get(summary_url)
@@ -42,7 +45,8 @@ angular.module("weatherApp", [require('angular-route')])
 		});
 	    } else {
 		get_summary.then(function(data) {
-		    // this is a hack, doesn't handle errors at all.
+		    // this is a hack, doesn't handle errors or at all.
+		    // also doesn't properly resolve cities with the same name.
 		    for (idx in data) {
 			if ( city_name === data[idx].city ) {
 			    console.log(city_name);
