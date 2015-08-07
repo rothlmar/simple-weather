@@ -1,9 +1,9 @@
 <div class="page-header">
-  <h1>{{ detail.data.city }} {{ detail.data.state | uppercase }} Weather</h1>
+  <h1>{{ detail.data.city }}, {{ detail.data.state | uppercase }} Weather</h1>
 </div>
 <div>
   <div class="col-md-4">
-    The temperature is {{ detail.data.tempF }}&#176;F and conditions are {{ detail.data.weather }}.
+    The temperature is {{ detail.data.tempF }}&#176;F ({{ detail.data.tempC }}&#176;C) and conditions are {{ detail.data.weather }}.
     There is a {{ detail.data.rainChance }} chance of rain.
   </div>
   <div class="col-md-4">
